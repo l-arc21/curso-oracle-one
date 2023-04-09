@@ -20,22 +20,41 @@
     }
 
     function sorteo(n) {
-        Math.round(Math.random()*n)
+        numero = Math.round(Math.random()*n)
+        return parseInt(numero)
     }
 
     var numeroPensado = sorteo(10)
-    var numeroLanzado = parseInt(prompt("Ingrese un número entre 0-10:"))
+    var intentos = 3
+    var contador = 1
+    
+    while (contador <= intentos) {
 
-    if (numeroLanzado == numeroPensado) {
-        imprimir("Usted acertó.")
-    }
-    else {
-        if (numeroLanzado > numeroPensado) {
-            imprimir("Usted erró, el número pensado era menor que tú número.")
+        var numeroLanzado = parseInt(prompt("Ingrese un número entre 0-10:"))
+
+        if (numeroLanzado == numeroPensado) {
+            alert("Usted acertó en el intento " + contador + ". El número pensado era " + numeroPensado)
+            break;
         }
         else {
-            imprimir("Usted erró, el número pensado era mayor que tú número.")
+                alert("Usted erró.")
         }
+
+        contador++
     }
+
+    if (numeroLanzado == numeroPensado) {
+            imprimir("Usted acertó en el intento " + contador + ". El número pensado era " + numeroPensado)
+        }
+        else {
+            if (numeroLanzado > numeroPensado) {
+                imprimir("Usted erró, el número pensado era menor que tú número.<br>El número pensado era " + numeroPensado)
+            }
+            else {
+                imprimir("Usted erró, el número pensado era mayor que tú número.<br>El número pensado era " + numeroPensado)
+            }
+        }
+
+    imprimir("Fin")
 
 </script>
