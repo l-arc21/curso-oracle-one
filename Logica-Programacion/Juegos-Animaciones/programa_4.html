@@ -20,16 +20,35 @@
     }
 
     var x = 0
+    var derecha = true
+    var izquierda = false
 
     function actualizarPantalla(){
 
-        limpiarPantalla();
-        disehnarCircunferencia(x,20,10);
-        x++
+        if(x==380){
+            derecha=false
+            izquierda=true
+        }
+        else if(x==0){
+            derecha=true
+            izquierda=false
+        }
+
+        if (derecha){
+            limpiarPantalla();
+            disehnarCircunferencia(x,20,10);
+            x++
+        }
+        else if (izquierda){
+            limpiarPantalla();
+            disehnarCircunferencia(x,20,10);
+            x--
+        }
+        
 
     }
 
-    setInterval(actualizarPantalla,100)
+    setInterval(actualizarPantalla,50)
 
     //disehnarCircunferencia(20,20,10)
     //disehnarCircunferencia(40,40,20)
